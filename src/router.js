@@ -1,8 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import Home from './views/Home.vue'
+import Create from './views/Create.vue'
+import Edit from './views/Edit.vue'
+import Show from './views/Show.vue'
 
 Vue.use(Router)
+Vue.use(VueAxios, axios)
 
 export default new Router({
   mode: 'history',
@@ -24,17 +30,17 @@ export default new Router({
     {
       path: '/create',
       name: 'Create',
-      component: () => import('./views/Create.vue')
+      component: Create
     },
     {
       path: '/edit',
       name: 'Edit',
-      component: () => import('./views/Edit.vue')
+      component: Edit
     },
     {
       path: '/show',
       name: 'Show',
-      component: () => import('./views/Show.vue')
+      component: Show
     }
   ]
 })

@@ -18,7 +18,11 @@
   </div>
 </template>
 <script>
-export default {}
+export default {
+  created: function () {
+    console.log('hello')
+  }
+}
 </script>
 <style>
   .fade-enter-active, .fade-leave-active {
