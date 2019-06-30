@@ -20,7 +20,7 @@
                     <td>{{book.price}}</td>
                     <td>
                         <router-link :to="{name: 'Edit', params: { id: book._id }}" class="btn btn-primary">Edit</router-link>
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger" @click="deleteBook(book._id)">Delete</button>
                     </td>
                 </tr>
             </tbody>
@@ -41,6 +41,11 @@ export default {
       this.axios.get(uri).then(response => {
         this.books = response.data
       })
+    },
+    deleteBook (id) {
+      let uri = 'http://localhost:4000/books/delete/' + id
+      this.books.splice(id, 1)
+      this.axios.get(uri)
     }
   }
 }
