@@ -5,8 +5,10 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const config = require('./config/DB')
 
+const bookRoutes = require('./expressRoutes/bookRoutes')
+
 mongoose.Promise = global.Promise
-mongoose.connect(config.DB).then(
+mongoose.connect(config.DB, { useNewUrlParser: true }).then(
   () => { console.log('Database is connected') },
   err => { console.log('Can not connect to the database' + err) }
 )
@@ -15,7 +17,9 @@ const app = express()
 app.use(express.static('public'))
 app.use(bodyParser.json())
 app.use(cors())
-var port = process.env.PORT || 4000
 
-var server = app.listen(function () { console.log('Listening on port ' + port) }
-)
+app.use('/books', bookRoutes)
+
+const port = process.env.PORT || 4000
+
+const server = app.listen(port, function () { console.log('Listening on port ' + port) })

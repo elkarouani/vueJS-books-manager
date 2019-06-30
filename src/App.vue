@@ -6,7 +6,7 @@
           <router-link :to="{ name: 'Create' }" class="nav-link">Add Book</router-link>
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'Index' }" class="nav-link">All Books</router-link>
+          <router-link :to="{ name: 'Show' }" class="nav-link">All Books</router-link>
         </li>
       </ul>
     </nav>
@@ -20,7 +20,7 @@
 <script>
 export default {
   created: function () {
-    console.log('hello')
+    console.log('well created')
   }
 }
 </script>
