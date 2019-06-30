@@ -1,5 +1,5 @@
 const express = require('express')
-const path = require('path')
+// const path = require('path')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const mongoose = require('mongoose')
@@ -22,4 +22,4 @@ app.use('/books', bookRoutes)
 
 const port = process.env.PORT || 4000
 
-const server = app.listen(port, function () { console.log('Listening on port ' + port) })
+app.listen(port, function () { console.log('Listening on port ' + port) })
