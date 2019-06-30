@@ -24,8 +24,8 @@ bookRoutes.route('/update/:id').post((req, res) => {
   Book.findById(req.params.id, (err, book) => {
     if (err || !book) { console.log(err) } else {
       book.book_title = req.body.book_title
-      book.autor_name = req.book.autor_name
-      book.price = req.book.price
+      book.autor_name = req.body.autor_name
+      book.price = req.body.price
 
       book.save().then(book => {
         res.json('Update complete')

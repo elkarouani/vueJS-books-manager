@@ -18,7 +18,10 @@
                     <td>{{book.book_title}}</td>
                     <td>{{book.autor_name}}</td>
                     <td>{{book.price}}</td>
-                    <td><router-link :to="{name: 'Edit', params: { id: book._id }}" class="btn btn-primary">Edit</router-link></td>
+                    <td>
+                        <router-link :to="{name: 'Edit', params: { id: book._id }}" class="btn btn-primary">Edit</router-link>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -26,25 +29,19 @@
 </template>
 <script>
 export default {
-    data () {
-        return {
-            books: []
-        }
-    },
-    created: function()
-    {
-        this.fetchBooks();
-    },
-
-    methods: {
-        fetchBooks () 
-        {
-            let uri = 'http://localhost:4000/books'
-            this.axios.get(uri).then(response => {
-                this.books = response.data
-            })
-        }
+  data () {
+    return {
+      books: []
     }
+  },
+  created: function () { this.fetchBooks() },
+  methods: {
+    fetchBooks () {
+      let uri = 'http://localhost:4000/books'
+      this.axios.get(uri).then(response => {
+        this.books = response.data
+      })
+    }
+  }
 }
 </script>
-
