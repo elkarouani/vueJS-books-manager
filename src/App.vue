@@ -3,10 +3,10 @@
     <nav class="navbar navbar-expand-sm bg-light">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <router-link :to="{ name: 'Create' }" class="nav-link">Add Item</router-link>
+          <router-link :to="{ name: 'Create' }" class="nav-link">Add Book</router-link>
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'Index' }" class="nav-link">All Items</router-link>
+          <router-link :to="{ name: 'Index' }" class="nav-link">All Books</router-link>
         </li>
       </ul>
     </nav>
